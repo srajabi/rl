@@ -25,6 +25,7 @@ class Agent(ABC):
         self.model = self._build_model(self.action_space)
 
         self.scores = []
+        self.best_score = 0
         self.ep_lengths = []
         self.history = []
 
@@ -105,6 +106,9 @@ class Agent(ABC):
 
                 total_episode_time = time.time() - start_time
 
+                if self.best_score < ep_reward:
+                    self.best_score = ep_reward
+
                 self.print_stats(ep, total_episode_time)
 
                 if ep % 1000 == 0:
@@ -161,12 +165,13 @@ class Agent(ABC):
         avg_len = sum(last_ep_len)/len(last_ep_len)
 
         # TODO Graph
-        print('ep: {0} len: {1:.2f} loss: {2:.5f} scoreavg: {3:.2f} score: {4} time: {5:.2f}'.format
+        print('ep: {0} len: {1:.2f} loss: {2:.5f} scoreavg: {3:.2f} score: {4} best: {5} time: {6:.2f}'.format
               (episode,
                avg_len,
                avg_loss,
                avg_score,
                self.scores[-1],
+               self.best_score,
                total_ep_time))
 
     def train_model(self):

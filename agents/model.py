@@ -95,7 +95,7 @@ def save_model(model, name):
 def load_latest_model(name):
     candidates = list(
         filter(lambda x: x.startswith(name) and x.endswith('.h5'),
-               os.listdir('./')))
+               os.listdir('./weights/')))
 
     candidates.sort(reverse=True)
 
