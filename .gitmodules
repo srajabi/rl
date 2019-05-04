@@ -1,0 +1,3 @@
+[submodule "envs/gym-ntictactoe"]
+	path = envs/gym-ntictactoe
+	url = https://github.com/srajabi/gym-ntictactoe.git
