@@ -101,7 +101,7 @@ def load_latest_model(name):
 
     print("Found candidate", candidates[0])
 
-    model = load_model(candidates[0], custom_objects={'huber_loss': huber_loss})
+    model = load_model('./weights/' + candidates[0], custom_objects={'huber_loss': huber_loss})
     return model
 
 

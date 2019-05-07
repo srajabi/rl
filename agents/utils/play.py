@@ -2,7 +2,7 @@ import gym
 import gym_ntictactoe
 import time
 
-env = gym.make('tictactoe-v0')
+env = gym.make('tictactoe4d-v0')
 
 done = False
 env.reset()
