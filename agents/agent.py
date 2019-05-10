@@ -52,6 +52,7 @@ class Agent(ABC):
             while not done:
                 action = self._predict_action(prev_state)
 
+                time.sleep(0.03)
                 self.env.render()
                 state_raw, reward, done, info = self.env.step(action)
 
